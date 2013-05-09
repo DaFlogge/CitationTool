@@ -26,8 +26,12 @@ public interface ContentFetcher {
 	public List<Article> getAllReferences(Article a);
 
 	/**
+	 * Returns a list of articles which are referenced by an article given and
+	 * that share at least one keyword
+	 * 
 	 * @param a
-	 * @return
+	 *            article to lookup references for
+	 * @return list of articles referenced with same keyword(s)
 	 */
 	public List<Article> getAllReferencesWithKeyword(Article a);
 

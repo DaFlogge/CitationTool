@@ -4,7 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Article implements Comparable<Article> {
+import plugins.ContentFetcher;
+
+public abstract class Article implements Comparable<Article> {
 
 	private String internalID;
 	private String externalID;
@@ -22,6 +24,14 @@ public class Article implements Comparable<Article> {
 
 	private int referenceCount = 0;
 
+	public static String resolveToExternalID (String internal) {
+		return internal;
+	}
+	
+	public ContentFetcher getContentFetcher() {
+		return null;
+	}
+	
 	public void resolveReferences(Map<String, Article> allArticles) {
 		for (String refString : this.referenceIDs) {
 			if (allArticles.containsKey(refString)) {
